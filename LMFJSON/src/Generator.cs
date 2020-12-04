@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,12 +33,16 @@ namespace LMFJSON.src
          */
         public string Modid { get; private set; }
 
+        public PathManager pathManager { get; private set; }
+
         /*---------------------------------------------------------*/
 
         public Generator()
         {
             ModelsToGenerate = new Dictionary<string, GenerationModes>();
+            pathManager = new PathManager(this);
         }
+
 
         /*--------------------------------------------------------------*/
         /*------------------------METHODS-------------------------------*/
@@ -52,8 +57,13 @@ namespace LMFJSON.src
              * UPDATE du modid lorsqu'on change de dossier de mod
              */
 
-            string[] pathPieces = OutputFolderPath.Split('/');
+            string[] pathPieces = OutputFolderPath.Split('\\');
             Modid = pathPieces[pathPieces.Length - 1];
+
+            Console.WriteLine(pathManager.Assets);
+            Console.WriteLine(pathManager.Blockstates);
+            Console.WriteLine(pathManager.Blocks);
+            Console.WriteLine(pathManager.Items);
         }
 
         /*
@@ -61,61 +71,64 @@ namespace LMFJSON.src
          */
         public void GenerateAll()
         {
-            foreach (var key in ModelsToGenerate)
+            if (OutputFolderPath != "" && Modid != "" && ModelsToGenerate.Count > 0)
             {
-                bool isValid = false;
-                switch (key.Value)
+                foreach (var key in ModelsToGenerate)
                 {
-                    case GenerationModes.GENERATED:
-                        isValid = GenerateItemGenerated(key.Key);
-                        break;
+                    bool isValid = false;
+                    switch (key.Value)
+                    {
+                        case GenerationModes.GENERATED:
+                            isValid = GenerateItemGenerated(key.Key);
+                            break;
 
-                    case GenerationModes.HANDHELD:
-                        isValid = GenerateItemHandheld(key.Key);
-                        break;
+                        case GenerationModes.HANDHELD:
+                            isValid = GenerateItemHandheld(key.Key);
+                            break;
 
-                    case GenerationModes.CUBE_ALL:
-                        isValid = GenerateBlockCubeAll(key.Key);
-                        break;
+                        case GenerationModes.CUBE_ALL:
+                            isValid = GenerateBlockCubeAll(key.Key);
+                            break;
 
-                    case GenerationModes.LOG:
-                        isValid = GenerateBlockLog(key.Key);
-                        break;
+                        case GenerationModes.LOG:
+                            isValid = GenerateBlockLog(key.Key);
+                            break;
 
-                    case GenerationModes.FURNACE:
-                        isValid = GenerateBlockFurnace(key.Key);
-                        break;
+                        case GenerationModes.FURNACE:
+                            isValid = GenerateBlockFurnace(key.Key);
+                            break;
 
-                    case GenerationModes.STAIRS:
-                        break;
+                        case GenerationModes.STAIRS:
+                            break;
 
-                    case GenerationModes.SLABS:
-                        break;
+                        case GenerationModes.SLABS:
+                            break;
 
-                    case GenerationModes.DOORS:
-                        break;
+                        case GenerationModes.DOORS:
+                            break;
 
-                    case GenerationModes.FENCES:
-                        break;
+                        case GenerationModes.FENCES:
+                            break;
 
-                    case GenerationModes.FENCE_GATE:
-                        break;
+                        case GenerationModes.FENCE_GATE:
+                            break;
 
-                    case GenerationModes.CROPS:
-                        break;
+                        case GenerationModes.CROPS:
+                            break;
 
-                    case GenerationModes.FLOWER:
-                        break;
+                        case GenerationModes.FLOWER:
+                            break;
 
-                    case GenerationModes.BUTTON:
-                        break;
+                        case GenerationModes.BUTTON:
+                            break;
 
-                }
-                // Si jamais une génération se passe mal
-                if(!isValid)
-                {
-                    MessageBox.Show("Une erreur s'est produite lors de la génération du model \"" + key.Key + "\"");
-                    return;
+                    }
+                    // Si jamais une génération se passe mal
+                    if (!isValid)
+                    {
+                        MessageBox.Show("Une erreur s'est produite lors de la génération du model \"" + key.Key + "\"");
+                        return;
+                    }
                 }
             }
         }
@@ -151,6 +164,7 @@ namespace LMFJSON.src
         public bool GenerateBlockStairs(string name)
         {
             return true;
+            
         }
      
         /*--------------------------------------------------------------*/

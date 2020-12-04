@@ -14,7 +14,6 @@ D:\Users\Gunpo\RiderProjects\lmf\lmfjson\LMFJSON\obj\Debug\LMFJSON.csproj.Genera
 D:\Users\Gunpo\RiderProjects\lmf\lmfjson\LMFJSON\obj\Debug\LMFJSON.csproj.CoreCompileInputs.cache
 D:\Users\Gunpo\RiderProjects\lmf\lmfjson\LMFJSON\obj\Debug\LMFJSON.exe
 D:\Users\Gunpo\RiderProjects\lmf\lmfjson\LMFJSON\obj\Debug\LMFJSON.pdb
-D:\Users\Gunpo\RiderProjects\lmf\lmfjson\LMFJSON\obj\Debug\App.baml
 D:\Users\Gunpo\RiderProjects\lmf\lmfjson\LMFJSON\bin\Debug\Properties\Resources.resx
 D:\Users\Gunpo\RiderProjects\lmf\lmfjson\LMFJSON\bin\Debug\Properties\Resources.Designer.cs
 D:\Users\Gunpo\RiderProjects\lmf\lmfjson\LMFJSON\bin\Debug\Resources\assets\sounds\click_sound.wav

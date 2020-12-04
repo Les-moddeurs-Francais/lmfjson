@@ -30,26 +30,26 @@ namespace LMFJSON
             this.DragMove();
         }
 
-        private void TwitterButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void TwitterButton_Click(object sender, RoutedEventArgs e)
         {
             PlayClickSound();
             System.Diagnostics.Process.Start("https://www.twitter.com/ZOm__YT");
             this.PlayClickSound();
         }
 
-        private void DiscordButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void DiscordButton_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.discord.gg/E9N4zRF");
             this.PlayClickSound();
         }
 
-        private void YoutubeButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void YoutubeButton_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.youtube.com/c/ZomZD");
             this.PlayClickSound();
         }
 
-        private void CloseButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             //Fermeture de l'application
             this.PlayClickSound();
@@ -70,9 +70,16 @@ namespace LMFJSON
             if (result == System.Windows.Forms.DialogResult.OK)
             {
                 mainGenerator.OutputFolderPath = fileDialog.SelectedPath;
+                mainGenerator.OnOutputPathChanged();
+
+                System.Windows.Controls.Label modidLabel = (System.Windows.Controls.Label) FindName("TextFolderChoose");
+                modidLabel.Content = "Modid : " + mainGenerator.Modid;
+                
                 Console.WriteLine("New Path Set : " + fileDialog.SelectedPath);
             }
         }
+
+
     }
 
 }

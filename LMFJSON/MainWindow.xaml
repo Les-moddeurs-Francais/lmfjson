@@ -31,7 +31,7 @@
         <Button x:Name="ButtonFileChoose" Canvas.Left="583" Canvas.Top="125" Width="190" Background="Transparent" BorderBrush="Transparent" Height="26" ForceCursor="True" Click="ButtonFileChoose_Click">
             <Image Source="Resources/assets/img/button_idle.png"/>
         </Button>
-        <Label x:Name="TextFolderChoose" Content="Choose a folder.." Canvas.Left="636" Canvas.Top="125" Width="102" Foreground="White" IsEnabled="False" IsHitTestVisible="False"/>
+        <Label x:Name="TextFolderChoose" Content="Choose a folder.." Canvas.Left="583" Canvas.Top="125" Width="190" Foreground="White" IsHitTestVisible="False" FontStyle="Italic" HorizontalContentAlignment="Center"/>
 
     </Canvas>
 
