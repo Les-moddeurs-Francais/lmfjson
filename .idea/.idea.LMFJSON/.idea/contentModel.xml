@@ -8,6 +8,20 @@
         <e p="App.config" t="Include" />
         <e p="App.xaml" t="Include" />
         <e p="App.xaml.cs" t="Include" />
+        <e p="assets" t="Include">
+          <e p="img" t="Include">
+            <e p="button_clicked.png" t="Include" />
+            <e p="button_idle.png" t="Include" />
+            <e p="demo_background.png" t="Include" />
+            <e p="discord_logo.png" t="Include" />
+            <e p="josuke.jpg" t="Include" />
+            <e p="twitter_logo.png" t="Include" />
+            <e p="youtube_logo.png" t="Include" />
+          </e>
+          <e p="templates" t="Include">
+            <e p="generated.json" t="Include" />
+          </e>
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="LMFJSON.csproj" t="IncludeRecursive" />
         <e p="MainWindow.xaml" t="Include" />
@@ -20,19 +34,8 @@
         </e>
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
-          <e p="img" t="Include">
-            <e p="button_clicked.png" t="Include" />
-            <e p="button_idle.png" t="Include" />
-            <e p="demo_background.png" t="Include" />
-            <e p="discord_logo.png" t="Include" />
-            <e p="twitter_logo.png" t="Include" />
-            <e p="youtube_logo.png" t="Include" />
-          </e>
           <e p="Resources.Designer.cs" t="Include" />
           <e p="Resources.resx" t="Include" />
-          <e p="templates" t="Include">
-            <e p="generated.json" t="Include" />
-          </e>
         </e>
       </e>
       <e p="LMFJSON.sln" t="IncludeFlat" />

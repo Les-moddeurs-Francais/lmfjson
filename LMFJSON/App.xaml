@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:LMFJSON"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+         <ResourceDictionary>
+             <BitmapImage x:Key="ButtonIdle" UriSource="assets/img/discord_logo.png"/>
+         </ResourceDictionary>
     </Application.Resources>
 </Application>
