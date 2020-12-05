@@ -94,8 +94,8 @@ namespace LMFJSON
                 {
                     string item = ((string)box.SelectedItem).ToLower();
 
-                    ComboBox itemBox = (ComboBox)FindName("ModelVariantBox_Item");
-                    ComboBox blockBox = (ComboBox)FindName("ModelVariantBox_Block");
+                    ComboBox itemBox = (ComboBox) FindName("ModelVariantBox_Item");
+                    ComboBox blockBox = (ComboBox) FindName("ModelVariantBox_Block");
 
                     if (item.Equals("block"))
                     {
@@ -123,6 +123,43 @@ namespace LMFJSON
         {
             ComboBox box = (ComboBox)FindName("ModelVariantBox_Block");
             currentMode = (GenerationModes)box.SelectedItem;
+        }
+
+        private void ButtonAddModel_Click(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)FindName("TextBoxModelName");
+            TextBox textBoxModelsToGenerate = (TextBox)FindName("TextBoxModelsToGenerate");
+            if(textBox.Text != "")
+            {
+                string modelName = textBox.Text.ToLower();
+                if(mainGenerator.ModelsToGenerate.ContainsKey(modelName))
+                {
+                    MessageBox.Show("You've already entered this name !");
+                    return;
+                }
+
+                mainGenerator.ModelsToGenerate.Add(modelName, currentMode);
+                textBox.Text = "";
+                mainGenerator.OnModelAdd(textBoxModelsToGenerate, modelName, currentMode);
+                PlayClickSound();
+            }
+            else
+            {
+                MessageBox.Show("You must enter some name to generate a model !");
+            }
+        }
+
+        private void ButtonGenerateModels_Click(object sender, RoutedEventArgs e)
+        {
+            mainGenerator.GenerateAll();
+        }
+
+        private void TextBoxModelName_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if(e.Key == System.Windows.Input.Key.Enter)
+            {
+                ButtonAddModel_Click(sender, e);
+            }
         }
     }
 

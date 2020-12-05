@@ -11,28 +11,28 @@
     <Window.Background>
         <ImageBrush ImageSource="Resources/assets/img/demo_background_transparent.png"/>
     </Window.Background>
-    <Canvas>
-        <Rectangle Fill="#FFF4F4F5" Height="15" Stroke="Black" Width="790" Opacity="0" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"/>
-        <Button x:Name="YoutubeButton" Canvas.Left="735" Canvas.Top="535" Width="55" Background="Transparent" BorderBrush="Transparent" Height="55" Click="YoutubeButton_Click">
+    <Canvas Margin="0,62,0,-62">
+        <Rectangle Fill="#FFF4F4F5" Height="15" Stroke="Black" Width="790" Opacity="0" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown" Canvas.Top="-59"/>
+        <Button x:Name="YoutubeButton" Canvas.Left="728" Canvas.Top="467" Width="55" Background="Transparent" BorderBrush="Transparent" Height="55" Click="YoutubeButton_Click">
             <Image Source="Resources/assets/img/youtube_slot.png"/>
         </Button>
-        <Button x:Name="TwitterButton" Canvas.Left="735" Canvas.Top="475" Width="55" Background="Transparent" BorderBrush="Transparent" Height="55" Click="TwitterButton_Click">
+        <Button x:Name="TwitterButton" Canvas.Left="728" Canvas.Top="407" Width="55" Background="Transparent" BorderBrush="Transparent" Height="55" Click="TwitterButton_Click">
             <Image Source="Resources/assets/img/twitter_slot.png"/>
         </Button>
-        <Button x:Name="DiscordButton" Canvas.Left="735" Canvas.Top="415" Width="55" Background="Transparent" BorderBrush="Transparent" Height="55" Click="DiscordButton_Click">
+        <Button x:Name="DiscordButton" Canvas.Left="728" Canvas.Top="347" Width="55" Background="Transparent" BorderBrush="Transparent" Height="55" Click="DiscordButton_Click">
             <Image Source="Resources/assets/img/discord_slot.png"/>
         </Button>
 
-        <Button x:Name="CloseButton" Canvas.Left="760" Canvas.Top="10" Width="30" Background="Transparent" BorderBrush="Transparent" Height="30" Click="CloseButton_Click">
+        <Button x:Name="CloseButton" Canvas.Left="760" Canvas.Top="-49" Width="30" Background="Transparent" BorderBrush="Transparent" Height="30" Click="CloseButton_Click">
             <Image Source="Resources/assets/img/close_button.png"/>
         </Button>
-        <Image Height="70" Canvas.Left="118" Canvas.Top="20" Width="620" Source="Resources/assets/img/title.png"/>
-        <TextBox x:Name="ModelsToGenerate" Height="24" Canvas.Left="502" TextWrapping="Wrap" Canvas.Top="182" Width="236" ClipToBounds="True" AllowDrop="False" Focusable="False" IsEnabled="False"/>
-        <Button x:Name="ButtonFileChoose" Canvas.Left="527" Canvas.Top="125" Width="190" Background="Transparent" BorderBrush="Transparent" Height="26" ForceCursor="True" Click="ButtonFileChoose_Click">
+        <Image Height="70" Canvas.Left="118" Canvas.Top="-39" Width="620" Source="Resources/assets/img/title.png"/>
+        <TextBox x:Name="TextBoxModelsToGenerate" Height="20" Canvas.Left="376" TextWrapping="Wrap" Canvas.Top="182" Width="236" ClipToBounds="True" AllowDrop="False" Focusable="False" IsEnabled="False" MaxHeight="340"/>
+        <Button x:Name="ButtonFileChoose" Canvas.Left="401" Canvas.Top="125" Width="190" Background="Transparent" BorderBrush="Transparent" Height="26" ForceCursor="True" Click="ButtonFileChoose_Click">
             <Image Source="Resources/assets/img/button_idle.png"/>
         </Button>
-        <Label x:Name="TextFolderChoose" Content="Choose a folder.." Canvas.Left="527" Canvas.Top="125" Width="190" Foreground="White" IsHitTestVisible="False" FontStyle="Italic" HorizontalContentAlignment="Center"/>
-        <Label x:Name="LabelModelsToGenerate" Content="Models to Generate" Canvas.Left="560" Canvas.Top="156" FontWeight="Bold" FontStyle="Italic"/>
+        <Label x:Name="TextFolderChoose" Content="Choose a folder.." Canvas.Left="401" Canvas.Top="125" Width="190" Foreground="White" IsHitTestVisible="False" FontStyle="Italic" HorizontalContentAlignment="Center"/>
+        <Label x:Name="LabelModelsToGenerate" Content="Models to Generate" Canvas.Left="434" Canvas.Top="156" FontWeight="Bold" FontStyle="Italic"/>
         <ComboBox x:Name="ModelTypeBox" Canvas.Left="24" Canvas.Top="182" Width="120" SelectedIndex="0" IsReadOnly="True" DropDownClosed="ModelTypeBox_DropDownClosed">
             <System:String>Item</System:String>
             <System:String>Block</System:String>
@@ -56,10 +56,15 @@
             <local:GenerationModes>FLOWER</local:GenerationModes>
             <local:GenerationModes>BUTTON</local:GenerationModes>
         </ComboBox>
-        <Button x:Name="ButtonFileChoose_Copy" Canvas.Left="59" Canvas.Top="209" Width="190" Background="Transparent" BorderBrush="Transparent" Height="26" ForceCursor="True" Click="ButtonFileChoose_Click">
+        <Button x:Name="ButtonAddModel" Canvas.Left="61" Canvas.Top="261" Width="190" Background="Transparent" BorderBrush="Transparent" Height="26" ForceCursor="True" Click="ButtonAddModel_Click">
             <Image Source="Resources/assets/img/button_idle.png"/>
         </Button>
-        <Label x:Name="TextModelAdd" Content="Add Model" Canvas.Left="59" Canvas.Top="209" Width="190" Foreground="White" IsHitTestVisible="False" FontStyle="Italic" HorizontalContentAlignment="Center"/>
+        <Label x:Name="TextModelAdd" Content="Add Model" Canvas.Left="61" Canvas.Top="261" Width="190" Foreground="White" IsHitTestVisible="False" FontStyle="Italic" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="TextBoxModelName" Height="23" Canvas.Left="88" TextWrapping="Wrap" Canvas.Top="222" Width="120" HorizontalContentAlignment="Stretch" KeyUp="TextBoxModelName_KeyUp"/>
+        <Button x:Name="ButtonGenerate" Canvas.Left="61" Canvas.Top="384" Width="190" Background="Transparent" BorderBrush="Transparent" Height="26" ForceCursor="True" Click="ButtonGenerateModels_Click">
+            <Image Source="Resources/assets/img/button_idle.png"/>
+        </Button>
+        <Label x:Name="TextGenerate" Content="Generate models" Canvas.Left="61" Canvas.Top="384" Width="190" Foreground="White" IsHitTestVisible="False" FontStyle="Italic" HorizontalContentAlignment="Center"/>
 
     </Canvas>
 

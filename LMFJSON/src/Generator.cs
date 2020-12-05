@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace LMFJSON.src
 {
@@ -67,9 +68,18 @@ namespace LMFJSON.src
         }
 
         /*
+         * Méthode appelée lorsque l'utilisateur rajoute un model à générer
+         */
+        public void OnModelAdd(TextBox textBox, string modelName, GenerationModes model)
+        {
+            textBox.Text += String.Format("[{0}] : \"{1}\"\n", model.ToString(), modelName);
+            textBox.Height = 20 + 20 * (ModelsToGenerate.Keys.Count-1);
+        }
+
+        /*
          * Méthode générale où tous les modèles se génèrent
          */
-        public void GenerateAll()
+        public bool GenerateAll()
         {
             if (OutputFolderPath != "" && Modid != "" && ModelsToGenerate.Count > 0)
             {
@@ -127,9 +137,14 @@ namespace LMFJSON.src
                     if (!isValid)
                     {
                         MessageBox.Show("Une erreur s'est produite lors de la génération du model \"" + key.Key + "\"");
-                        return;
+                        return false;
                     }
                 }
+                return true;
+            }else
+            {
+                MessageBox.Show("You must set the path of your mod folder and/or add at least 1 model to generate !");
+                return false;
             }
         }
 
