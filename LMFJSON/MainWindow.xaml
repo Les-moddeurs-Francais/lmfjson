@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LMFJSON"
-        xmlns:Properties="clr-namespace:LMFJSON.Properties" x:Class="LMFJSON.MainWindow"
+        xmlns:Properties="clr-namespace:LMFJSON.Properties" xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="LMFJSON.MainWindow"
         mc:Ignorable="d"
         Title="LMFJson" Height="600" Width="800" ResizeMode="CanMinimize" WindowStyle="None" AllowsTransparency="True" >
 
@@ -27,11 +27,35 @@
             <Image Source="Resources/assets/img/close_button.png"/>
         </Button>
         <Image Height="70" Canvas.Left="118" Canvas.Top="20" Width="620" Source="Resources/assets/img/title.png"/>
-        <TextBox x:Name="ModelsToGenerate" Height="24" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="278" Width="236" ClipToBounds="True" AllowDrop="False" Focusable="False" IsEnabled="False"/>
-        <Button x:Name="ButtonFileChoose" Canvas.Left="583" Canvas.Top="125" Width="190" Background="Transparent" BorderBrush="Transparent" Height="26" ForceCursor="True" Click="ButtonFileChoose_Click">
+        <TextBox x:Name="ModelsToGenerate" Height="24" Canvas.Left="502" TextWrapping="Wrap" Canvas.Top="182" Width="236" ClipToBounds="True" AllowDrop="False" Focusable="False" IsEnabled="False"/>
+        <Button x:Name="ButtonFileChoose" Canvas.Left="527" Canvas.Top="125" Width="190" Background="Transparent" BorderBrush="Transparent" Height="26" ForceCursor="True" Click="ButtonFileChoose_Click">
             <Image Source="Resources/assets/img/button_idle.png"/>
         </Button>
-        <Label x:Name="TextFolderChoose" Content="Choose a folder.." Canvas.Left="583" Canvas.Top="125" Width="190" Foreground="White" IsHitTestVisible="False" FontStyle="Italic" HorizontalContentAlignment="Center"/>
+        <Label x:Name="TextFolderChoose" Content="Choose a folder.." Canvas.Left="527" Canvas.Top="125" Width="190" Foreground="White" IsHitTestVisible="False" FontStyle="Italic" HorizontalContentAlignment="Center"/>
+        <Label x:Name="LabelModelsToGenerate" Content="Models to Generate" Canvas.Left="560" Canvas.Top="156" FontWeight="Bold" FontStyle="Italic"/>
+        <ComboBox x:Name="ModelTypeBox" Canvas.Left="24" Canvas.Top="182" Width="120" SelectedIndex="0" IsReadOnly="True" DropDownClosed="ModelTypeBox_DropDownClosed">
+            <System:String>Item</System:String>
+            <System:String>Block</System:String>
+        </ComboBox>
+        <Label Content="Model Type" Canvas.Left="24" Canvas.Top="156" Width="120" HorizontalContentAlignment="Center" FontStyle="Italic" FontWeight="Bold"/>
+        <ComboBox x:Name="ModelVariantBox_Item" Canvas.Left="161" Canvas.Top="182" Width="120" SelectedIndex="0" IsReadOnly="True" DropDownClosed="ModelVariantBox_Item_DropDownClosed">
+            <local:GenerationModes>GENERATED</local:GenerationModes>
+            <local:GenerationModes>HANDHELD</local:GenerationModes>
+        </ComboBox>
+        <Label Content="Model Variant" Canvas.Left="161" Canvas.Top="156" Width="120" HorizontalContentAlignment="Center" FontStyle="Italic" FontWeight="Bold"/>
+        <ComboBox x:Name="ModelVariantBox_Block" Canvas.Left="161" Canvas.Top="182" Width="120" SelectedIndex="0" IsReadOnly="True" Visibility="Hidden" DropDownClosed="ModelVariantBox_Block_DropDownClosed">
+            <local:GenerationModes>CUBE_ALL</local:GenerationModes>
+            <local:GenerationModes>LOG</local:GenerationModes>
+            <local:GenerationModes>FURNACE</local:GenerationModes>
+            <local:GenerationModes>STAIRS</local:GenerationModes>
+            <local:GenerationModes>SLABS</local:GenerationModes>
+            <local:GenerationModes>DOORS</local:GenerationModes>
+            <local:GenerationModes>FENCES</local:GenerationModes>
+            <local:GenerationModes>FENCE_GATE</local:GenerationModes>
+            <local:GenerationModes>CROPS</local:GenerationModes>
+            <local:GenerationModes>FLOWER</local:GenerationModes>
+            <local:GenerationModes>BUTTON</local:GenerationModes>
+        </ComboBox>
 
     </Canvas>
 

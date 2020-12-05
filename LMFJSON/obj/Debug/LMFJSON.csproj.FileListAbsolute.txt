@@ -17,3 +17,4 @@ D:\Users\Gunpo\RiderProjects\lmf\lmfjson\LMFJSON\obj\Debug\LMFJSON.pdb
 D:\Users\Gunpo\RiderProjects\lmf\lmfjson\LMFJSON\bin\Debug\Properties\Resources.resx
 D:\Users\Gunpo\RiderProjects\lmf\lmfjson\LMFJSON\bin\Debug\Properties\Resources.Designer.cs
 D:\Users\Gunpo\RiderProjects\lmf\lmfjson\LMFJSON\bin\Debug\Resources\assets\sounds\click_sound.wav
+D:\Users\Gunpo\RiderProjects\lmf\lmfjson\LMFJSON\obj\Debug\GeneratedInternalTypeHelper.g.cs

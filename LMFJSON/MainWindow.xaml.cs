@@ -1,8 +1,7 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Media;
-using System.Windows.Forms;
+using System.Windows.Controls;
 
 namespace LMFJSON
 {
@@ -15,6 +14,7 @@ namespace LMFJSON
         private MediaPlayer soundPlayer { get; set; }
         private string appdataPath { get; set; }
         internal src.Generator mainGenerator { get; set; }
+        private GenerationModes currentMode { get; set; }
 
 
         public MainWindow()
@@ -22,6 +22,7 @@ namespace LMFJSON
             appdataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             soundPlayer = new MediaPlayer();
             mainGenerator = new src.Generator();
+            currentMode = GenerationModes.GENERATED;
             InitializeComponent();
         }
 
@@ -64,22 +65,65 @@ namespace LMFJSON
 
         private void ButtonFileChoose_Click(object sender, RoutedEventArgs e)
         {
-            FolderBrowserDialog fileDialog = new FolderBrowserDialog();
-            DialogResult result = fileDialog.ShowDialog();
+            System.Windows.Forms.FolderBrowserDialog fileDialog = new System.Windows.Forms.FolderBrowserDialog();
+            System.Windows.Forms.DialogResult result = fileDialog.ShowDialog();
 
             if (result == System.Windows.Forms.DialogResult.OK)
             {
                 mainGenerator.OutputFolderPath = fileDialog.SelectedPath;
                 mainGenerator.OnOutputPathChanged();
 
-                System.Windows.Controls.Label modidLabel = (System.Windows.Controls.Label) FindName("TextFolderChoose");
+                Label modidLabel = (Label)FindName("TextFolderChoose");
                 modidLabel.Content = "Modid : " + mainGenerator.Modid;
-                
+
                 Console.WriteLine("New Path Set : " + fileDialog.SelectedPath);
             }
         }
 
+        /*
+         * Gère le choix de model entre block et item 
+         */
+        private void ModelTypeBox_DropDownClosed(object sender, EventArgs e)
+        {
+            object element = FindName("ModelTypeBox");
+            if (element is ComboBox)
+            {
 
+                ComboBox box = (ComboBox)element;
+                if (box.SelectedItem is string)
+                {
+                    string item = ((string)box.SelectedItem).ToLower();
+
+                    ComboBox itemBox = (ComboBox)FindName("ModelVariantBox_Item");
+                    ComboBox blockBox = (ComboBox)FindName("ModelVariantBox_Block");
+
+                    if (item.Equals("block"))
+                    {
+                        itemBox.Visibility = Visibility.Hidden;
+                        blockBox.Visibility = Visibility.Visible;
+                        currentMode = (GenerationModes)blockBox.Items[0];
+                    }
+                    else if (item.Equals("item"))
+                    {
+                        blockBox.Visibility = Visibility.Hidden;
+                        itemBox.Visibility = Visibility.Visible;
+                        currentMode = (GenerationModes)itemBox.Items[0];
+                    }
+                }
+            }
+        }
+
+        private void ModelVariantBox_Item_DropDownClosed(object sender, EventArgs e)
+        {
+            ComboBox box = (ComboBox)FindName("ModelVariantBox_Item");
+            currentMode = (GenerationModes)box.SelectedItem;
+        }
+
+        private void ModelVariantBox_Block_DropDownClosed(object sender, EventArgs e)
+        {
+            ComboBox box = (ComboBox)FindName("ModelVariantBox_Block");
+            currentMode = (GenerationModes)box.SelectedItem;
+        }
     }
 
 }
