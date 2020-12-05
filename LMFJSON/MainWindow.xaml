@@ -56,6 +56,10 @@
             <local:GenerationModes>FLOWER</local:GenerationModes>
             <local:GenerationModes>BUTTON</local:GenerationModes>
         </ComboBox>
+        <Button x:Name="ButtonFileChoose_Copy" Canvas.Left="59" Canvas.Top="209" Width="190" Background="Transparent" BorderBrush="Transparent" Height="26" ForceCursor="True" Click="ButtonFileChoose_Click">
+            <Image Source="Resources/assets/img/button_idle.png"/>
+        </Button>
+        <Label x:Name="TextModelAdd" Content="Add Model" Canvas.Left="59" Canvas.Top="209" Width="190" Foreground="White" IsHitTestVisible="False" FontStyle="Italic" HorizontalContentAlignment="Center"/>
 
     </Canvas>
 
