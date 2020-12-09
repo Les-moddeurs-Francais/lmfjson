@@ -68,5 +68,19 @@ namespace LMFJSON.Properties {
                 return ResourceManager.GetStream("click_sound", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
+        ///  &quot;parent&quot;: &quot;item/generated&quot;,
+        ///  &quot;textures&quot;: {
+        ///    &quot;layer0&quot;: &quot;modid:item/name&quot;
+        ///  }
+        ///}.
+        /// </summary>
+        public static string generated {
+            get {
+                return ResourceManager.GetString("generated", resourceCulture);
+            }
+        }
     }
 }

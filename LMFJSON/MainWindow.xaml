@@ -31,7 +31,7 @@
         <Button x:Name="ButtonFileChoose" Canvas.Left="401" Canvas.Top="125" Width="190" Background="Transparent" BorderBrush="Transparent" Height="26" ForceCursor="True" Click="ButtonFileChoose_Click">
             <Image Source="Resources/assets/img/button_idle.png"/>
         </Button>
-        <Label x:Name="TextFolderChoose" Content="Choose a folder.." Canvas.Left="401" Canvas.Top="125" Width="190" Foreground="White" IsHitTestVisible="False" FontStyle="Italic" HorizontalContentAlignment="Center"/>
+        <Label x:Name="TextFolderChoose" Content="Choose a folder.." Canvas.Left="401" Canvas.Top="125" Width="190" Foreground="White" IsHitTestVisible="False" HorizontalContentAlignment="Center" FontWeight="Bold"/>
         <Label x:Name="LabelModelsToGenerate" Content="Models to Generate" Canvas.Left="434" Canvas.Top="156" FontWeight="Bold" FontStyle="Italic"/>
         <ComboBox x:Name="ModelTypeBox" Canvas.Left="24" Canvas.Top="182" Width="120" SelectedIndex="0" IsReadOnly="True" DropDownClosed="ModelTypeBox_DropDownClosed">
             <System:String>Item</System:String>

@@ -18,17 +18,17 @@ namespace LMFJSON.src
          * DICTIONNAIRE remplit par les unlocalized name des items/blocks (key) avec leur type de models (value)
          */
         public Dictionary<string, GenerationModes> ModelsToGenerate { get; private set; }
-        
+
         /*
          * Chemin vers le dossier principal du mod
          */
         public string OutputFolderPath { get; set; }
-        
+
         /*
          * BOOL permettant à l'utilisateur d'ouvrir le dossier assets à la fin de la génération des models
          */
-        public bool OpenOutputFolder { get; set;}
-        
+        public bool OpenOutputFolder { get; set; }
+
         /*
          * MODID du mod basé sur le nom du dossier sélectionné par l'utilisateur
          */
@@ -36,6 +36,7 @@ namespace LMFJSON.src
 
         public PathManager pathManager { get; private set; }
 
+        /*---------------------------------------------------------*/
         /*---------------------------------------------------------*/
 
         public Generator()
@@ -59,12 +60,16 @@ namespace LMFJSON.src
              */
 
             string[] pathPieces = OutputFolderPath.Split('\\');
-            Modid = pathPieces[pathPieces.Length - 1];
+            Modid = pathPieces[pathPieces.Length - 1].ToLower().Replace(' ', '_');
 
             Console.WriteLine(pathManager.Assets);
             Console.WriteLine(pathManager.Blockstates);
             Console.WriteLine(pathManager.Blocks);
             Console.WriteLine(pathManager.Items);
+
+            Directory.CreateDirectory(pathManager.Blockstates);
+            Directory.CreateDirectory(pathManager.Blocks);
+            Directory.CreateDirectory(pathManager.Items);
         }
 
         /*
@@ -73,7 +78,13 @@ namespace LMFJSON.src
         public void OnModelAdd(TextBox textBox, string modelName, GenerationModes model)
         {
             textBox.Text += String.Format("[{0}] : \"{1}\"\n", model.ToString(), modelName);
-            textBox.Height = 20 + 20 * (ModelsToGenerate.Keys.Count-1);
+            textBox.Height = 20 + 20 * (ModelsToGenerate.Keys.Count - 1);
+        }
+
+        public void ResetModels(TextBox textBox)
+        {
+            textBox.Text = "";
+            textBox.Height = 20;
         }
 
         /*
@@ -140,8 +151,11 @@ namespace LMFJSON.src
                         return false;
                     }
                 }
+                ModelsToGenerate.Clear();
+                MessageBox.Show("Tous les modèles ont été générés avec succès dans " + pathManager.Assets);
                 return true;
-            }else
+            }
+            else
             {
                 MessageBox.Show("You must set the path of your mod folder and/or add at least 1 model to generate !");
                 return false;
@@ -153,6 +167,16 @@ namespace LMFJSON.src
          */
         public bool GenerateItemGenerated(string name)
         {
+            string content = Properties.Resources.generated.Replace("modid", Modid).Replace("name", name);
+            try
+            {
+                File.WriteAllText(pathManager.Items + name + ".json", content);
+            }
+            catch (IOException exception)
+            {
+                Console.WriteLine(exception.Message);
+                return false;
+            }
             return true;
         }
 
@@ -179,9 +203,10 @@ namespace LMFJSON.src
         public bool GenerateBlockStairs(string name)
         {
             return true;
-            
+
         }
-     
+
+        /*--------------------------------------------------------------*/
         /*--------------------------------------------------------------*/
 
     }
