@@ -100,6 +100,60 @@ namespace LMFJSON.Properties {
         
         /// <summary>
         ///   Recherche une chaîne localisée semblable à {
+        ///  &quot;parent&quot;: &quot;minecraft:block/cube_column&quot;,
+        ///  &quot;textures&quot;: {
+        ///    &quot;end&quot;: &quot;modid:block/name_top&quot;,
+        ///    &quot;side&quot;: &quot;modid:block/name&quot;
+        ///  }
+        ///}.
+        /// </summary>
+        public static string cube_log {
+            get {
+                return ResourceManager.GetString("cube_log", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
+        ///  &quot;variants&quot;: {
+        ///    &quot;axis=x&quot;: {
+        ///      &quot;model&quot;: &quot;modid:block/name_horizontal&quot;,
+        ///      &quot;x&quot;: 90,
+        ///      &quot;y&quot;: 90
+        ///    },
+        ///    &quot;axis=y&quot;: {
+        ///      &quot;model&quot;: &quot;modid:block/name&quot;
+        ///    },
+        ///    &quot;axis=z&quot;: {
+        ///      &quot;model&quot;: &quot;modid:block/name_horizontal&quot;,
+        ///      &quot;x&quot;: 90
+        ///    }
+        ///  }
+        ///}.
+        /// </summary>
+        public static string cube_log_blockstate {
+            get {
+                return ResourceManager.GetString("cube_log_blockstate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
+        ///  &quot;parent&quot;: &quot;minecraft:block/cube_column_horizontal&quot;,
+        ///  &quot;textures&quot;: {
+        ///    &quot;end&quot;: &quot;modid:block/name_top&quot;,
+        ///    &quot;side&quot;: &quot;modid:block/name&quot;
+        ///  }
+        ///}.
+        /// </summary>
+        public static string cube_log_horizontal {
+            get {
+                return ResourceManager.GetString("cube_log_horizontal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
         ///  &quot;parent&quot;: &quot;item/generated&quot;,
         ///  &quot;textures&quot;: {
         ///    &quot;layer0&quot;: &quot;modid:item/name&quot;

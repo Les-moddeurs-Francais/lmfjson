@@ -111,10 +111,6 @@ namespace LMFJSON.src
                             isValid = GenerateBlockCubeAll(key.Key);
                             break;
 
-                        case GenerationModes.COLUMN:
-                            
-                            break;
-
                         case GenerationModes.LOG:
                             isValid = GenerateBlockLog(key.Key);
                             break;
@@ -204,8 +200,7 @@ namespace LMFJSON.src
 
         public bool GenerateBlockCubeAll(string name)
         {
-            //TODO
-            /* Item Model*/
+            
             string itemBlockModel = FormatModel(Properties.Resources.itemblock, name);
             string blockModel = FormatModel(Properties.Resources.cube_all_model, name);
             string blockstateModel = FormatModel(Properties.Resources.cube_all_blockstate, name);
@@ -223,12 +218,30 @@ namespace LMFJSON.src
                 return false;
             }
 
-            /* Blockstates Model*/
 
             return true;
         }
         public bool GenerateBlockLog(string name)
         {
+            string itemBlockModel = FormatModel(Properties.Resources.itemblock, name);
+            string blockModel = FormatModel(Properties.Resources.cube_log, name);
+            string blockModel_horizontal = FormatModel(Properties.Resources.cube_log_horizontal, name);
+            string blockstateModel = FormatModel(Properties.Resources.cube_log_blockstate, name);
+
+            try
+            {
+                writeItemFile(itemBlockModel, name);
+                writeBlockFile(blockModel, name);
+                writeBlockFile(blockModel_horizontal, name + "_horizontal");
+                writeBlockstateFile(blockstateModel, name);
+
+            }
+            catch (IOException exception)
+            {
+                Console.WriteLine(exception.Message);
+                return false;
+            }
+
             return true;
         }
         public bool GenerateBlockFurnace(string name)
