@@ -100,6 +100,69 @@ namespace LMFJSON.Properties {
         
         /// <summary>
         ///   Recherche une chaîne localisée semblable à {
+        ///  &quot;parent&quot;: &quot;minecraft:block/orientable&quot;,
+        ///  &quot;textures&quot;: {
+        ///    &quot;top&quot;: &quot;modid:block/name_top&quot;,
+        ///    &quot;front&quot;: &quot;modid:block/name_front&quot;,
+        ///    &quot;side&quot;: &quot;modid:block/name_side&quot;
+        ///  }
+        ///}.
+        /// </summary>
+        public static string cube_furnace {
+            get {
+                return ResourceManager.GetString("cube_furnace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
+        ///  &quot;variants&quot;: {
+        ///    &quot;facing=east,lit=false&quot;: {
+        ///      &quot;model&quot;: &quot;modid:block/name&quot;,
+        ///      &quot;y&quot;: 90
+        ///    },
+        ///    &quot;facing=east,lit=true&quot;: {
+        ///      &quot;model&quot;: &quot;modid:block/name_on&quot;,
+        ///      &quot;y&quot;: 90
+        ///    },
+        ///    &quot;facing=north,lit=false&quot;: {
+        ///      &quot;model&quot;: &quot;modid:block/name&quot;
+        ///    },
+        ///    &quot;facing=north,lit=true&quot;: {
+        ///      &quot;model&quot;: &quot;modid:block/name_on&quot;
+        ///    },
+        ///    &quot;facing=south,lit=false&quot;: {
+        ///      &quot;model&quot;: &quot;modid:block/name&quot;,
+        ///      &quot;y&quot;: 180
+        ///    },
+        ///    &quot;facing=south,lit=true&quot;: {
+        ///      &quot;model&quot;: &quot;modid:block/name_on&quot;,
+        ///      &quot;y&quot;: 1 [le reste de la chaîne a été tronqué]&quot;;.
+        /// </summary>
+        public static string cube_furnace_blockstate {
+            get {
+                return ResourceManager.GetString("cube_furnace_blockstate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
+        ///  &quot;parent&quot;: &quot;minecraft:block/orientable&quot;,
+        ///  &quot;textures&quot;: {
+        ///    &quot;top&quot;: &quot;modid:block/name_top&quot;,
+        ///    &quot;front&quot;: &quot;modid:block/name_front_on&quot;,
+        ///    &quot;side&quot;: &quot;modid:block/name_side&quot;
+        ///  }
+        ///}.
+        /// </summary>
+        public static string cube_furnace_on {
+            get {
+                return ResourceManager.GetString("cube_furnace_on", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
         ///  &quot;parent&quot;: &quot;minecraft:block/cube_column&quot;,
         ///  &quot;textures&quot;: {
         ///    &quot;end&quot;: &quot;modid:block/name_top&quot;,

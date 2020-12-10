@@ -93,6 +93,9 @@
     <None Include="Resources\assets\templates\cube_log_horizontal.json" />
     <None Include="Resources\assets\templates\cube_all_blockstate.json" />
     <None Include="Resources\assets\templates\cube_all_model.json" />
+    <None Include="Resources\assets\templates\cube_furnace.json" />
+    <None Include="Resources\assets\templates\cube_furnace_on.json" />
+    <None Include="Resources\assets\templates\cube_furnace_blockstate.json" />
     <None Include="Resources\assets\templates\handheld.json" />
   </ItemGroup>
   <ItemGroup>

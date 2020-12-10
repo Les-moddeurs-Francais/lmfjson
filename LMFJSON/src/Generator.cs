@@ -246,6 +246,24 @@ namespace LMFJSON.src
         }
         public bool GenerateBlockFurnace(string name)
         {
+            string itemBlockModel = FormatModel(Properties.Resources.itemblock, name);
+            string blockModel = FormatModel(Properties.Resources.cube_furnace, name);
+            string blockModel_on = FormatModel(Properties.Resources.cube_furnace_on, name);
+            string blockstateModel = FormatModel(Properties.Resources.cube_furnace_blockstate, name);
+
+            try
+            {
+                writeItemFile(itemBlockModel, name);
+                writeBlockFile(blockModel, name);
+                writeBlockFile(blockModel_on, name + "_on");
+                writeBlockstateFile(blockstateModel, name);
+
+            }
+            catch (IOException exception)
+            {
+                Console.WriteLine(exception.Message);
+                return false;
+            }
             return true;
         }
         public bool GenerateBlockStairs(string name)
