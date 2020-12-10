@@ -43,19 +43,7 @@
             <local:GenerationModes>HANDHELD</local:GenerationModes>
         </ComboBox>
         <Label Content="Model Variant" Canvas.Left="161" Canvas.Top="156" Width="120" HorizontalContentAlignment="Center" FontStyle="Italic" FontWeight="Bold"/>
-        <ComboBox x:Name="ModelVariantBox_Block" Canvas.Left="161" Canvas.Top="182" Width="120" SelectedIndex="0" IsReadOnly="True" Visibility="Hidden" DropDownClosed="ModelVariantBox_Block_DropDownClosed">
-            <local:GenerationModes>CUBE_ALL</local:GenerationModes>
-            <local:GenerationModes>LOG</local:GenerationModes>
-            <local:GenerationModes>FURNACE</local:GenerationModes>
-            <local:GenerationModes>STAIRS</local:GenerationModes>
-            <local:GenerationModes>SLABS</local:GenerationModes>
-            <local:GenerationModes>DOORS</local:GenerationModes>
-            <local:GenerationModes>FENCES</local:GenerationModes>
-            <local:GenerationModes>FENCE_GATE</local:GenerationModes>
-            <local:GenerationModes>CROPS</local:GenerationModes>
-            <local:GenerationModes>FLOWER</local:GenerationModes>
-            <local:GenerationModes>BUTTON</local:GenerationModes>
-        </ComboBox>
+        <ComboBox x:Name="ModelVariantBox_Block" Canvas.Left="161" Canvas.Top="182" Width="120" SelectedIndex="0" IsReadOnly="True" Visibility="Hidden" DropDownClosed="ModelVariantBox_Block_DropDownClosed"/>
         <Button x:Name="ButtonAddModel" Canvas.Left="61" Canvas.Top="261" Width="190" Background="Transparent" BorderBrush="Transparent" Height="26" ForceCursor="True" Click="ButtonAddModel_Click">
             <Image Source="Resources/assets/img/button_idle.png"/>
         </Button>

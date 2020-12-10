@@ -24,6 +24,11 @@ namespace LMFJSON
             mainGenerator = new src.Generator();
             currentMode = GenerationModes.GENERATED;
             InitializeComponent();
+            for(int i = 2; i < Enum.GetNames(typeof(GenerationModes)).Length; i++)
+            {
+                ModelVariantBox_Block.Items.Add(Enum.GetValues(typeof(GenerationModes)).GetValue(i));
+            }
+            
         }
 
         private void Rectangle_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

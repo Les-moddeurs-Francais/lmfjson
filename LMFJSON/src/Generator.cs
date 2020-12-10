@@ -111,6 +111,10 @@ namespace LMFJSON.src
                             isValid = GenerateBlockCubeAll(key.Key);
                             break;
 
+                        case GenerationModes.COLUMN:
+                            
+                            break;
+
                         case GenerationModes.LOG:
                             isValid = GenerateBlockLog(key.Key);
                             break;
@@ -167,10 +171,10 @@ namespace LMFJSON.src
          */
         public bool GenerateItemGenerated(string name)
         {
-            string content = Properties.Resources.generated.Replace("modid", Modid).Replace("name", name);
+            string content = FormatModel(Properties.Resources.generated, name);
             try
             {
-                File.WriteAllText(pathManager.Items + name + ".json", content);
+                writeItemFile(content, name);
             }
             catch (IOException exception)
             {
@@ -185,10 +189,10 @@ namespace LMFJSON.src
          */
         public bool GenerateItemHandheld(string name)
         {
-            string content = Properties.Resources.handheld.Replace("modid", Modid).Replace("name", name);
+            string content = FormatModel(Properties.Resources.handheld, name);
             try
             {
-                File.WriteAllText(pathManager.Items + name + ".json", content);
+                writeItemFile(content, name);
             }
             catch (IOException exception)
             {
@@ -200,6 +204,27 @@ namespace LMFJSON.src
 
         public bool GenerateBlockCubeAll(string name)
         {
+            //TODO
+            /* Item Model*/
+            string itemBlockModel = FormatModel(Properties.Resources.itemblock, name);
+            string blockModel = FormatModel(Properties.Resources.cube_all_model, name);
+            string blockstateModel = FormatModel(Properties.Resources.cube_all_blockstate, name);
+
+            try
+            {
+                writeItemFile(itemBlockModel, name);
+                writeBlockFile(blockModel, name);
+                writeBlockstateFile(blockstateModel, name);
+                
+            }
+            catch (IOException exception)
+            {
+                Console.WriteLine(exception.Message);
+                return false;
+            }
+
+            /* Blockstates Model*/
+
             return true;
         }
         public bool GenerateBlockLog(string name)
@@ -214,6 +239,26 @@ namespace LMFJSON.src
         {
             return true;
 
+        }
+
+        private string FormatModel(string model, string name)
+        {
+            return model.Replace("modid", Modid).Replace("name", name);
+        }
+
+        private void writeItemFile(string content, string name)
+        {
+            File.WriteAllText(pathManager.Items + name + ".json", content);
+        }
+
+        private void writeBlockFile(string content, string name)
+        {
+            File.WriteAllText(pathManager.Blocks + name + ".json", content);
+        }
+
+        private void writeBlockstateFile(string content, string name)
+        {
+            File.WriteAllText(pathManager.Blockstates + name + ".json", content);
         }
 
         /*--------------------------------------------------------------*/

@@ -87,6 +87,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="Resources\assets\templates\itemblock.json" />
+    <None Include="Resources\assets\templates\cube_all_blockstate.json" />
+    <None Include="Resources\assets\templates\cube_all_model.json" />
     <None Include="Resources\assets\templates\handheld.json" />
   </ItemGroup>
   <ItemGroup>

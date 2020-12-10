@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/assets/templates/itemblock.json")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/assets/templates/generated.json")]
 
 

@@ -71,6 +71,35 @@ namespace LMFJSON.Properties {
         
         /// <summary>
         ///   Recherche une chaîne localisée semblable à {
+        ///  &quot;variants&quot;: {
+        ///    &quot;&quot;: {
+        ///      &quot;model&quot;: &quot;modid:block/name&quot;
+        ///    }
+        ///  }
+        ///}.
+        /// </summary>
+        public static string cube_all_blockstate {
+            get {
+                return ResourceManager.GetString("cube_all_blockstate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
+        ///  &quot;parent&quot;: &quot;minecraft:block/cube_all&quot;,
+        ///  &quot;textures&quot;: {
+        ///    &quot;all&quot;: &quot;modid:block/name&quot;
+        ///  }
+        ///}.
+        /// </summary>
+        public static string cube_all_model {
+            get {
+                return ResourceManager.GetString("cube_all_model", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
         ///  &quot;parent&quot;: &quot;item/generated&quot;,
         ///  &quot;textures&quot;: {
         ///    &quot;layer0&quot;: &quot;modid:item/name&quot;
@@ -80,6 +109,31 @@ namespace LMFJSON.Properties {
         public static string generated {
             get {
                 return ResourceManager.GetString("generated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
+        ///  &quot;parent&quot;: &quot;minecraft:item/handheld&quot;,
+        ///  &quot;textures&quot;: {
+        ///    &quot;layer0&quot;: &quot;modid:item/name&quot;
+        ///  }
+        ///}.
+        /// </summary>
+        public static string handheld {
+            get {
+                return ResourceManager.GetString("handheld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
+        ///  &quot;parent&quot;: &quot;modid:block/name&quot;
+        ///}.
+        /// </summary>
+        public static string itemblock {
+            get {
+                return ResourceManager.GetString("itemblock", resourceCulture);
             }
         }
     }
