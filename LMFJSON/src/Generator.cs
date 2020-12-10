@@ -185,6 +185,16 @@ namespace LMFJSON.src
          */
         public bool GenerateItemHandheld(string name)
         {
+            string content = Properties.Resources.handheld.Replace("modid", Modid).Replace("name", name);
+            try
+            {
+                File.WriteAllText(pathManager.Items + name + ".json", content);
+            }
+            catch (IOException exception)
+            {
+                Console.WriteLine(exception.Message);
+                return false;
+            }
             return true;
         }
 

@@ -82,5 +82,19 @@ namespace LMFJSON.Properties {
                 return ResourceManager.GetString("generated", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
+        ///  &quot;parent&quot;: &quot;minecraft:item/handheld&quot;,
+        ///  &quot;textures&quot;: {
+        ///    &quot;layer0&quot;: &quot;modid:item/name&quot;
+        ///  }
+        ///}.
+        /// </summary>
+        public static string handheld {
+            get {
+                return ResourceManager.GetString("handheld", resourceCulture);
+            }
+        }
     }
 }

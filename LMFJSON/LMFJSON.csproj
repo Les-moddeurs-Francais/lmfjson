@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Resources\assets\templates\handheld.json" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\assets\img\button_clicked.png" />
