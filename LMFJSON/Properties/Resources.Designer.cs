@@ -217,6 +217,81 @@ namespace LMFJSON.Properties {
         
         /// <summary>
         ///   Recherche une chaîne localisée semblable à {
+        ///  &quot;variants&quot;: {
+        ///    &quot;facing=east,half=bottom,shape=inner_left&quot;: {
+        ///      &quot;model&quot;: &quot;modid:block/name_inner&quot;,
+        ///      &quot;y&quot;: 270,
+        ///      &quot;uvlock&quot;: true
+        ///    },
+        ///    &quot;facing=east,half=bottom,shape=inner_right&quot;: {
+        ///      &quot;model&quot;: &quot;modid:block/name_inner&quot;
+        ///    },
+        ///    &quot;facing=east,half=bottom,shape=outer_left&quot;: {
+        ///      &quot;model&quot;: &quot;modid:block/name_outer&quot;,
+        ///      &quot;y&quot;: 270,
+        ///      &quot;uvlock&quot;: true
+        ///    },
+        ///    &quot;facing=east,half=bottom,shape=outer_right&quot;: {
+        ///      &quot;model&quot;: &quot;modid:block/name_outer&quot;
+        ///    },
+        ///    &quot;facing=east,half=bottom [le reste de la chaîne a été tronqué]&quot;;.
+        /// </summary>
+        public static string cube_stairs_blockstates {
+            get {
+                return ResourceManager.GetString("cube_stairs_blockstates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
+        ///  &quot;parent&quot;: &quot;minecraft:block/inner_stairs&quot;,
+        ///  &quot;textures&quot;: {
+        ///    &quot;bottom&quot;: &quot;modid:block/name&quot;,
+        ///    &quot;top&quot;: &quot;modid:block/name&quot;,
+        ///    &quot;side&quot;: &quot;modid:block/name&quot;
+        ///  }
+        ///}.
+        /// </summary>
+        public static string cube_stairs_inner_model {
+            get {
+                return ResourceManager.GetString("cube_stairs_inner_model", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
+        ///  &quot;parent&quot;: &quot;minecraft:block/stairs&quot;,
+        ///  &quot;textures&quot;: {
+        ///    &quot;bottom&quot;: &quot;modid:block/name&quot;,
+        ///    &quot;top&quot;: &quot;modid:block/name&quot;,
+        ///    &quot;side&quot;: &quot;modid:block/name&quot;
+        ///  }
+        ///}.
+        /// </summary>
+        public static string cube_stairs_model {
+            get {
+                return ResourceManager.GetString("cube_stairs_model", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
+        ///  &quot;parent&quot;: &quot;minecraft:block/outer_stairs&quot;,
+        ///  &quot;textures&quot;: {
+        ///    &quot;bottom&quot;: &quot;modid:block/name&quot;,
+        ///    &quot;top&quot;: &quot;modid:block/name&quot;,
+        ///    &quot;side&quot;: &quot;modid:block/name&quot;
+        ///  }
+        ///}.
+        /// </summary>
+        public static string cube_stairs_outer_model {
+            get {
+                return ResourceManager.GetString("cube_stairs_outer_model", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
         ///  &quot;parent&quot;: &quot;item/generated&quot;,
         ///  &quot;textures&quot;: {
         ///    &quot;layer0&quot;: &quot;modid:item/name&quot;

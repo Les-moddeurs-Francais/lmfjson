@@ -120,6 +120,7 @@ namespace LMFJSON.src
                             break;
 
                         case GenerationModes.STAIRS:
+                            isValid = GenerateBlockStairs(key.Key);
                             break;
 
                         case GenerationModes.SLABS:
@@ -268,8 +269,27 @@ namespace LMFJSON.src
         }
         public bool GenerateBlockStairs(string name)
         {
-            return true;
+            string itemBlockModel = FormatModel(Properties.Resources.itemblock, name);
+            string blockModel = FormatModel(Properties.Resources.cube_stairs_model, name);
+            string blockModel_inner = FormatModel(Properties.Resources.cube_stairs_inner_model, name);
+            string blockModel_outer = FormatModel(Properties.Resources.cube_stairs_outer_model, name);
+            string blockstateModel = FormatModel(Properties.Resources.cube_stairs_blockstates, name);
 
+            try
+            {
+                writeItemFile(itemBlockModel, name);
+                writeBlockFile(blockModel, name);
+                writeBlockFile(blockModel_inner, name + "_inner");
+                writeBlockFile(blockModel_outer, name + "_outer");
+                writeBlockstateFile(blockstateModel, name);
+
+            }
+            catch (IOException exception)
+            {
+                Console.WriteLine(exception.Message);
+                return false;
+            }
+            return true;
         }
 
         private string FormatModel(string model, string name)
