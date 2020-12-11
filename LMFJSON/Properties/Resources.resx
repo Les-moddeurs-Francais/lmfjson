@@ -145,6 +145,15 @@
   <data name="cube_log_horizontal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\assets\templates\cube_log_horizontal.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="cube_slab_blockstate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\assets\templates\cube_slab_blockstate.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="cube_slab_model" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\assets\templates\cube_slab_model.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="cube_slab_top_model" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\assets\templates\cube_slab_top_model.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="cube_stairs_blockstates" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\assets\templates\cube_stairs_blockstates.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>

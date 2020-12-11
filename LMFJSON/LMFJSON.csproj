@@ -88,6 +88,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <Content Include="Resources\assets\templates\itemblock.json" />
+    <None Include="Resources\assets\templates\cube_slab_model.json" />
+    <None Include="Resources\assets\templates\cube_slab_top_model.json" />
+    <None Include="Resources\assets\templates\cube_slab_blockstate.json" />
     <None Include="Resources\assets\templates\cube_stairs_model.json" />
     <None Include="Resources\assets\templates\cube_stairs_inner_model.json" />
     <None Include="Resources\assets\templates\cube_stairs_outer_model.json" />

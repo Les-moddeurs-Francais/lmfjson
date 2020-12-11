@@ -218,6 +218,59 @@ namespace LMFJSON.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à {
         ///  &quot;variants&quot;: {
+        ///    &quot;type=bottom&quot;: {
+        ///      &quot;model&quot;: &quot;modid:block/name&quot;
+        ///    },
+        ///    &quot;type=double&quot;: {
+        ///      &quot;model&quot;: &quot;modid:block/fullblock&quot;
+        ///    },
+        ///    &quot;type=top&quot;: {
+        ///      &quot;model&quot;: &quot;modid:block/name_top&quot;
+        ///    }
+        ///  }
+        ///}.
+        /// </summary>
+        public static string cube_slab_blockstate {
+            get {
+                return ResourceManager.GetString("cube_slab_blockstate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
+        ///  &quot;parent&quot;: &quot;minecraft:block/slab&quot;,
+        ///  &quot;textures&quot;: {
+        ///    &quot;bottom&quot;: &quot;modid:block/fullblock&quot;,
+        ///    &quot;top&quot;: &quot;modid:block/fullblock&quot;,
+        ///    &quot;side&quot;: &quot;modid:block/fullblock&quot;
+        ///  }
+        ///}.
+        /// </summary>
+        public static string cube_slab_model {
+            get {
+                return ResourceManager.GetString("cube_slab_model", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
+        ///  &quot;parent&quot;: &quot;minecraft:block/slab_top&quot;,
+        ///  &quot;textures&quot;: {
+        ///    &quot;bottom&quot;: &quot;modid:block/fullblock&quot;,
+        ///    &quot;top&quot;: &quot;modid:block/fullblock&quot;,
+        ///    &quot;side&quot;: &quot;modid:block/fullblock&quot;
+        ///  }
+        ///}.
+        /// </summary>
+        public static string cube_slab_top_model {
+            get {
+                return ResourceManager.GetString("cube_slab_top_model", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
+        ///  &quot;variants&quot;: {
         ///    &quot;facing=east,half=bottom,shape=inner_left&quot;: {
         ///      &quot;model&quot;: &quot;modid:block/name_inner&quot;,
         ///      &quot;y&quot;: 270,

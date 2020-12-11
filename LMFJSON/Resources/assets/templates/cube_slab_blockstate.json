@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "modid:block/name"
+    },
+    "type=double": {
+      "model": "modid:block/texture"
+    },
+    "type=top": {
+      "model": "modid:block/name_top"
+    }
+  }
+}

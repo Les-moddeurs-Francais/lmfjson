@@ -19,6 +19,11 @@ namespace LMFJSON.src
          * DICTIONNAIRE remplit par les unlocalized name des items/blocks (key) avec leur type de models (value)
          */
         public Dictionary<string, GenerationModes> ModelsToGenerate { get; private set; }
+        
+        /*
+         * DICTIONNAIRE contenant le nom des textures additionnels si le model en a besoin (ex: texture des slabs, stairs...)
+         */
+        public Dictionary<string, string> AdditionalTextures { get; private set; }
 
         /*
          * Chemin vers le dossier principal du mod
@@ -43,6 +48,7 @@ namespace LMFJSON.src
         public Generator()
         {
             ModelsToGenerate = new Dictionary<string, GenerationModes>();
+            AdditionalTextures = new Dictionary<string, string>();
             pathManager = new PathManager(this);
         }
 
@@ -99,36 +105,38 @@ namespace LMFJSON.src
         {
             if (OutputFolderPath != "" && Modid != "" && ModelsToGenerate.Count > 0)
             {
-                foreach (var key in ModelsToGenerate)
+                foreach (var element in ModelsToGenerate)
                 {
                     bool isValid = false;
-                    switch (key.Value)
+                    string textureName = AdditionalTextures.ContainsKey(element.Key) ? AdditionalTextures[element.Key] : "";
+                    switch (element.Value)
                     {
                         case GenerationModes.GENERATED:
-                            isValid = GenerateItemGenerated(key.Key);
+                            isValid = GenerateItemGenerated(element.Key);
                             break;
 
                         case GenerationModes.HANDHELD:
-                            isValid = GenerateItemHandheld(key.Key);
+                            isValid = GenerateItemHandheld(element.Key);
                             break;
 
                         case GenerationModes.CUBE_ALL:
-                            isValid = GenerateBlockCubeAll(key.Key);
+                            isValid = GenerateBlockCubeAll(element.Key);
                             break;
 
                         case GenerationModes.LOG:
-                            isValid = GenerateBlockLog(key.Key);
+                            isValid = GenerateBlockLog(element.Key);
                             break;
 
                         case GenerationModes.FURNACE:
-                            isValid = GenerateBlockFurnace(key.Key);
+                            isValid = GenerateBlockFurnace(element.Key);
                             break;
 
                         case GenerationModes.STAIRS:
-                            isValid = GenerateBlockStairs(key.Key);
+                            isValid = GenerateBlockStairs(element.Key, textureName);
                             break;
 
                         case GenerationModes.SLABS:
+                            isValid = GenerateBlockSlabs(element.Key, textureName);
                             break;
 
                         case GenerationModes.DOORS:
@@ -153,12 +161,13 @@ namespace LMFJSON.src
                     // Si jamais une génération se passe mal
                     if (!isValid)
                     {
-                        MessageBox.Show("Une erreur s'est produite lors de la génération du model \"" + key.Key + "\"");
+                        MessageBox.Show("Une erreur s'est produite lors de la génération du model \"" + element.Key + "\"");
                         return false;
                     }
                 }
 
                 ModelsToGenerate.Clear();
+                AdditionalTextures.Clear();
                 MessageBox.Show("Tous les modèles ont été générés avec succès dans " + pathManager.Assets);
                 return true;
             }
@@ -286,13 +295,13 @@ namespace LMFJSON.src
             return true;
         
         }
-        public bool GenerateBlockStairs(string name)
+        public bool GenerateBlockStairs(string name, string texture)
         {
            
             string itemBlockModel = FormatModel(Properties.Resources.itemblock, name);
-            string blockModel = FormatModel(Properties.Resources.cube_stairs_model, name);
-            string blockModel_inner = FormatModel(Properties.Resources.cube_stairs_inner_model, name);
-            string blockModel_outer = FormatModel(Properties.Resources.cube_stairs_outer_model, name);
+            string blockModel = FormatModel(Properties.Resources.cube_stairs_model, name).Replace("texture", texture);
+            string blockModel_inner = FormatModel(Properties.Resources.cube_stairs_inner_model, name).Replace("texture", texture);
+            string blockModel_outer = FormatModel(Properties.Resources.cube_stairs_outer_model, name).Replace("texture", texture);
             string blockstateModel = FormatModel(Properties.Resources.cube_stairs_blockstates, name);
 
             try
@@ -312,6 +321,30 @@ namespace LMFJSON.src
             return true;
         
         }
+
+        private bool GenerateBlockSlabs(string name, string texture)
+        {
+            string itemBlockModel = FormatModel(Properties.Resources.itemblock, name);
+            string blockModel = FormatModel(Properties.Resources.cube_slab_model, name).Replace("texture", texture);
+            string blockModel_top = FormatModel(Properties.Resources.cube_slab_top_model, name).Replace("texture", texture);
+            string blockstateModel = FormatModel(Properties.Resources.cube_slab_blockstate, name).Replace("texture", texture);
+
+            try
+            {
+                writeItemFile(itemBlockModel, name);
+                writeBlockFile(blockModel, name);
+                writeBlockFile(blockModel_top, name + "_top");
+                writeBlockstateFile(blockstateModel, name);
+            }
+            catch (IOException exception)
+            {
+                Console.WriteLine(exception.Message);
+                return false;
+            }
+
+            return true;
+        }
+
 
         private string FormatModel(string model, string name)
         {   

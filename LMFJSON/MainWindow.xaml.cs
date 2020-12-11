@@ -101,6 +101,7 @@ namespace LMFJSON
                 {
                     ModelVariantBox_Block.Visibility = Visibility.Hidden;
                     ModelVariantBox_Item.Visibility = Visibility.Visible;
+                    TextBoxTextureName.IsEnabled = false;
                     currentMode = (GenerationModes)ModelVariantBox_Item.Items[0];
                 }
             }
@@ -115,6 +116,14 @@ namespace LMFJSON
         private void ModelVariantBox_Block_DropDownClosed(object sender, EventArgs e)
         {
             currentMode = (GenerationModes)ModelVariantBox_Block.SelectedItem;
+            if (doesNeedAdditionalTexture(currentMode))
+            {
+                TextBoxTextureName.IsEnabled = true;
+            }
+            else
+            {
+                TextBoxTextureName.IsEnabled = false;
+            }
         }
 
         private void ButtonAddModel_Click(object sender, RoutedEventArgs e)
@@ -124,8 +133,21 @@ namespace LMFJSON
                 string modelName = TextBoxModelName.Text.ToLower().Replace(' ', '_');
                 if (mainGenerator.ModelsToGenerate.ContainsKey(modelName))
                 {
-                    MessageBox.Show("You've already entered this name !");
+                    MessageBox.Show("Il y a déjà un item/block avec ce nom dans la liste de génération !");
                     return;
+                }
+
+                if (doesNeedAdditionalTexture(currentMode))
+                {
+                    if (TextBoxTextureName.Text == "")
+                    {
+                        MessageBox.Show("Vous devez rentrer le nom de la texture que vous souhaitez pour ce type de model !");
+                        return;
+                    }else
+                    {
+                        mainGenerator.AdditionalTextures.Add(modelName, TextBoxTextureName.Text.ToLower().Replace(' ', '_'));
+                        TextBoxTextureName.Text = "";
+                    }
                 }
 
                 mainGenerator.ModelsToGenerate.Add(modelName, currentMode);
@@ -136,6 +158,22 @@ namespace LMFJSON
             else
             {
                 MessageBox.Show("You must enter some name to generate a model !");
+            }
+        }
+
+        private bool doesNeedAdditionalTexture(GenerationModes mode)
+        {
+            switch (mode)
+            {
+                case GenerationModes.STAIRS:
+                case GenerationModes.SLABS:
+                case GenerationModes.DOORS:
+                case GenerationModes.FENCES:
+                case GenerationModes.FENCE_GATE:
+                    return true;
+
+                default:
+                    return false;
             }
         }
 

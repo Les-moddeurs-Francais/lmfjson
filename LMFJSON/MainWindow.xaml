@@ -44,15 +44,18 @@
         </ComboBox>
         <Label Content="Model Variant" Canvas.Left="161" Canvas.Top="156" Width="120" HorizontalContentAlignment="Center" FontStyle="Italic" FontWeight="Bold"/>
         <ComboBox x:Name="ModelVariantBox_Block" Canvas.Left="161" Canvas.Top="182" Width="120" SelectedIndex="0" IsReadOnly="True" Visibility="Hidden" DropDownClosed="ModelVariantBox_Block_DropDownClosed"/>
-        <Button x:Name="ButtonAddModel" Canvas.Left="61" Canvas.Top="261" Width="190" Background="Transparent" BorderBrush="Transparent" Height="26" ForceCursor="True" Click="ButtonAddModel_Click">
+        <Button x:Name="ButtonAddModel" Canvas.Left="61" Canvas.Top="311" Width="190" Background="Transparent" BorderBrush="Transparent" Height="26" ForceCursor="True" Click="ButtonAddModel_Click">
             <Image Source="Resources/assets/img/button_idle.png"/>
         </Button>
-        <Label x:Name="TextModelAdd" Content="Add Model" Canvas.Left="61" Canvas.Top="261" Width="190" Foreground="White" IsHitTestVisible="False" FontStyle="Italic" HorizontalContentAlignment="Center"/>
+        <Label x:Name="TextModelAdd" Content="Add Model" Canvas.Left="61" Canvas.Top="311" Width="190" Foreground="White" IsHitTestVisible="False" FontStyle="Italic" HorizontalContentAlignment="Center"/>
         <TextBox x:Name="TextBoxModelName" Height="23" Canvas.Left="88" TextWrapping="Wrap" Canvas.Top="222" Width="120" HorizontalContentAlignment="Stretch" KeyUp="TextBoxModelName_KeyUp"/>
         <Button x:Name="ButtonGenerate" Canvas.Left="61" Canvas.Top="384" Width="190" Background="Transparent" BorderBrush="Transparent" Height="26" ForceCursor="True" Click="ButtonGenerateModels_Click">
             <Image Source="Resources/assets/img/button_idle.png"/>
         </Button>
         <Label x:Name="TextGenerate" Content="Generate models" Canvas.Left="61" Canvas.Top="384" Width="190" Foreground="White" IsHitTestVisible="False" FontStyle="Italic" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="TextBoxTextureName" Height="23" Canvas.Left="88" TextWrapping="Wrap" Canvas.Top="262" Width="120" HorizontalContentAlignment="Stretch" KeyUp="TextBoxModelName_KeyUp" IsEnabled="False"/>
+        <Label Content="Name :" Canvas.Left="-15" Canvas.Top="222" Width="120" HorizontalContentAlignment="Center" FontStyle="Italic" FontWeight="Bold"/>
+        <Label Content="Tex. Name :" Canvas.Left="-15" Canvas.Top="259" Width="120" HorizontalContentAlignment="Center" FontStyle="Italic" FontWeight="Bold"/>
 
     </Canvas>
 
