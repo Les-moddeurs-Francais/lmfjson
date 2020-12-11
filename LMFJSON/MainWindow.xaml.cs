@@ -38,7 +38,6 @@ namespace LMFJSON
 
         private void TwitterButton_Click(object sender, RoutedEventArgs e)
         {
-            PlayClickSound();
             System.Diagnostics.Process.Start("https://twitter.com/lesmoddeursfr");
             this.PlayClickSound();
         }
@@ -58,7 +57,6 @@ namespace LMFJSON
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             //Fermeture de l'application
-            this.PlayClickSound();
             this.Close();
         }
 
