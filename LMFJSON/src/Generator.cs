@@ -11,6 +11,7 @@ namespace LMFJSON.src
 {
     class Generator
     {
+
         /*---------------------VARIABLES---------------------------*/
         /*---------------------------------------------------------*/
 
@@ -53,8 +54,10 @@ namespace LMFJSON.src
         /*
          * Méthode appelée lorsqu'on change le dossier du mod principal pour effectuer les changements de modid, etc...
          */
+
         public void OnOutputPathChanged()
         {
+            
             /*
              * UPDATE du modid lorsqu'on change de dossier de mod
              */
@@ -70,11 +73,13 @@ namespace LMFJSON.src
             Directory.CreateDirectory(pathManager.Blockstates);
             Directory.CreateDirectory(pathManager.Blocks);
             Directory.CreateDirectory(pathManager.Items);
+
         }
 
         /*
          * Méthode appelée lorsque l'utilisateur rajoute un model à générer
          */
+
         public void OnModelAdd(TextBox textBox, string modelName, GenerationModes model)
         {
             textBox.Text += String.Format("[{0}] : \"{1}\"\n", model.ToString(), modelName);
@@ -152,6 +157,7 @@ namespace LMFJSON.src
                         return false;
                     }
                 }
+
                 ModelsToGenerate.Clear();
                 MessageBox.Show("Tous les modèles ont été générés avec succès dans " + pathManager.Assets);
                 return true;
@@ -168,7 +174,9 @@ namespace LMFJSON.src
          */
         public bool GenerateItemGenerated(string name)
         {
+            
             string content = FormatModel(Properties.Resources.generated, name);
+            
             try
             {
                 writeItemFile(content, name);
@@ -178,7 +186,9 @@ namespace LMFJSON.src
                 Console.WriteLine(exception.Message);
                 return false;
             }
+            
             return true;
+
         }
 
         /*
@@ -186,7 +196,9 @@ namespace LMFJSON.src
          */
         public bool GenerateItemHandheld(string name)
         {
+
             string content = FormatModel(Properties.Resources.handheld, name);
+            
             try
             {
                 writeItemFile(content, name);
@@ -196,6 +208,7 @@ namespace LMFJSON.src
                 Console.WriteLine(exception.Message);
                 return false;
             }
+
             return true;
         }
 
@@ -219,11 +232,13 @@ namespace LMFJSON.src
                 return false;
             }
 
-
             return true;
+
         }
+
         public bool GenerateBlockLog(string name)
         {
+
             string itemBlockModel = FormatModel(Properties.Resources.itemblock, name);
             string blockModel = FormatModel(Properties.Resources.cube_log, name);
             string blockModel_horizontal = FormatModel(Properties.Resources.cube_log_horizontal, name);
@@ -244,9 +259,11 @@ namespace LMFJSON.src
             }
 
             return true;
+
         }
         public bool GenerateBlockFurnace(string name)
         {
+          
             string itemBlockModel = FormatModel(Properties.Resources.itemblock, name);
             string blockModel = FormatModel(Properties.Resources.cube_furnace, name);
             string blockModel_on = FormatModel(Properties.Resources.cube_furnace_on, name);
@@ -265,10 +282,13 @@ namespace LMFJSON.src
                 Console.WriteLine(exception.Message);
                 return false;
             }
+
             return true;
+        
         }
         public bool GenerateBlockStairs(string name)
         {
+           
             string itemBlockModel = FormatModel(Properties.Resources.itemblock, name);
             string blockModel = FormatModel(Properties.Resources.cube_stairs_model, name);
             string blockModel_inner = FormatModel(Properties.Resources.cube_stairs_inner_model, name);
@@ -282,18 +302,19 @@ namespace LMFJSON.src
                 writeBlockFile(blockModel_inner, name + "_inner");
                 writeBlockFile(blockModel_outer, name + "_outer");
                 writeBlockstateFile(blockstateModel, name);
-
             }
             catch (IOException exception)
             {
                 Console.WriteLine(exception.Message);
                 return false;
             }
+
             return true;
+        
         }
 
         private string FormatModel(string model, string name)
-        {
+        {   
             return model.Replace("modid", Modid).Replace("name", name);
         }
 
