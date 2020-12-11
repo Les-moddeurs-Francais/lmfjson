@@ -39,7 +39,7 @@ namespace LMFJSON
         private void TwitterButton_Click(object sender, RoutedEventArgs e)
         {
             PlayClickSound();
-            System.Diagnostics.Process.Start("https://www.twitter.com/ZOm__YT");
+            System.Diagnostics.Process.Start("https://twitter.com/lesmoddeursfr");
             this.PlayClickSound();
         }
 
@@ -64,8 +64,8 @@ namespace LMFJSON
 
         private void PlayClickSound()
         {
-            this.soundPlayer.Open(new Uri("Resources/assets/sounds/click_sound.wav", UriKind.Relative));
-            this.soundPlayer.Play();
+            System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.click_sound);
+            sound.Play();
         }
 
         private void ButtonFileChoose_Click(object sender, RoutedEventArgs e)
